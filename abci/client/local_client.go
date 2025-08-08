@@ -86,6 +86,7 @@ func (app *localClient) Echo(_ context.Context, msg string) (*types.ResponseEcho
 }
 
 func (app *localClient) Info(ctx context.Context, req *types.RequestInfo) (*types.ResponseInfo, error) {
+	// TODO_HACK(#3): This is a hack to avoid RPC queries being blocked by heavy/slow EndBlockers.
 	// app.mtx.Lock()
 	// defer app.mtx.Unlock()
 
@@ -100,6 +101,7 @@ func (app *localClient) CheckTx(ctx context.Context, req *types.RequestCheckTx) 
 }
 
 func (app *localClient) Query(ctx context.Context, req *types.RequestQuery) (*types.ResponseQuery, error) {
+	// TODO_HACK(#3): This is a hack to avoid RPC queries being blocked by heavy/slow EndBlockers.
 	// app.mtx.Lock()
 	// defer app.mtx.Unlock()
 
